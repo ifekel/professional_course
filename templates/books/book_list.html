@@ -1,0 +1,21 @@
+{% extends '_base.html' %}
+
+{% include '_navbar.html' %}
+
+{% block title %}Books{% endblock %}
+
+{% block content %}
+<style>
+    h2 a {
+        text-decoration: none;
+        color: black;
+        font-size: 3rem;
+        font-family: HP Simplified;
+    }
+</style>
+{% for book in book_list %}
+<div>
+    <h2><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></h2>
+</div>
+{% endfor %}
+{% endblock content %}

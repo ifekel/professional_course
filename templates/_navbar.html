@@ -1,0 +1,17 @@
+<nav>
+    {% if user.is_authenticated %}
+    <h3><a href="{% url 'home' %}">Authenticator</a></h3>
+    {% if user.is_superuser %}
+    <h5><a href="admin/">Admin</a></h5>
+    {% endif %}
+    <h5><a href="{% url 'book_list' %}">Books</a></h5>
+    <h5><a href="{% url 'search_result' %}">Search</a></h5>
+    <h5><a href="{% url 'account_logout' %}">Log Out</a></h5>
+    {% else %}
+    <h3><a href="{% url 'account_logout' %}">Not Logged In</a></h3>
+    <div class="nav-actions">
+        <h5><a href="{% url 'account_login' %}">Log In</a></h5>
+        <h5><a href="{% url 'account_signup' %}">Sign Up</a></h5>
+    </div>
+    {% endif %}
+</nav>

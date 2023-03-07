@@ -1,0 +1,21 @@
+{% extends '_base.html' %}
+{% load static %}
+
+
+{% block title %}
+{% if user.is_authenticated %}
+-Home
+{% else %}
+{% endif %}
+{% endblock title %}
+
+
+
+
+{% block content %}
+{% if user.is_authenticated %}
+<h1>Hi {{ user }}!</h1>
+{% else %}
+<h1>Not logged in</h1>
+{% endif %}
+{% endblock content %}

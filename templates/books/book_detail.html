@@ -1,0 +1,35 @@
+{% extends '_base.html' %}
+
+{% include '_navbar.html' %}
+
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block content %}
+<style>
+    h2 {
+        font-size: 3rem;
+        font-family: HP Simplified;
+    }
+
+    p {
+        font-size: 1.6rem;
+    }
+</style>
+
+<div class="book-detail">
+    {% if book.cover %}
+    <img src="{{ book.cover.url }}" alt="{{ book.title }}" class="bookcover">
+    {% endif %}
+    <h2>{{ object.title }}</h2>
+    <p><b>Author</b>: {{ object.author }}</p>
+    <p><b>Price</b>: {{ object.price }}</p>
+    <div>
+        <h3>Reviews</h3>
+        <ul>
+            {% for review in book.reviews.all %}
+            <li>{{ review.review }} ({{ review.author }})</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock content %}
